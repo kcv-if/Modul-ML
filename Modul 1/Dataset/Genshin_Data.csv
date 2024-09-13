@@ -1,0 +1,85 @@
+character_name              , rarity, region   , vision , weapon_type, hp_90_90, atk_90_90, def_90_90
+Albedo                      , 5     , Mondstadt, Geo    , Sword      , 13226   , 251      , 876
+Alhaitham                   , 5     , Sumeru   , Dendro , Sword      , 13348   , 313      , 781
+Aloy                        , 5     , Unknown  , Cryo   , Bow        , 10899   , 234      , 676
+Amber                       , 4     , Mondstadt, Pyro   , Bow        , 9461    , 223      , 601
+Arataki Itto                , 5     , Inazuma  , Geo    , Claymore   , 12858   , 227      , 959
+Baizhu                      , 5     , Liyue    , Dendro , Catalyst   , 13348   , 192      , 499
+Barbara                     , 4     , Mondstadt, Hydro  , Catalyst   , 9787    , 159      , 669
+Beidou                      , 4     , Liyue    , Electro, Claymore   , 13050   , 225      , 648
+Bennett                     , 4     , Mondstadt, Pyro   , Sword      , 12397   , 191      , 771
+Candace                     , 4     , Sumeru   , Hydro  , Polearm    , 10874   , 212      , 682
+Charlotte                   , 4     , Fontaine , Cryo   , Catalyst   , 10766   , 173      , 546
+Chongyun                    , 4     , Liyue    , Cryo   , Claymore   , 10984   , 223      , 648
+Collei                      , 4     , Sumeru   , Dendro , Bow        , 9787    , 199      , 600
+Cyno                        , 5     , Sumeru   , Electro, Polearm    , 12490   , 318      , 859
+Dehya                       , 5     , Sumeru   , Pyro   , Claymore   , 15674   , 265      , 627
+Diluc                       , 5     , Mondstadt, Pyro   , Claymore   , 12981   , 335      , 784
+Diona                       , 4     , Mondstadt, Cryo   , Bow        , 9570    , 212      , 601
+Dori                        , 4     , Sumeru   , Electro, Claymore   , 12397   , 223      , 723
+Eula                        , 5     , Mondstadt, Cryo   , Claymore   , 13226   , 342      , 751
+Faruzan                     , 4     , Sumeru   , Anemo  , Bow        , 9569    , 196      , 627
+Fischl                      , 4     , Mondstadt, Electro, Bow        , 9189    , 244      , 594
+Freminet                    , 4     , Fontaine , Cryo   , Claymore   , 12071   , 254      , 708
+Furina                      , 5     , Fontaine , Hydro  , Sword      , 15307   , 243      , 695
+Ganyu                       , 5     , Liyue    , Cryo   , Bow        , 9797    , 335      , 630
+Gorou                       , 4     , Inazuma  , Geo    , Bow        , 9570    , 183      , 648
+Hu Tao                      , 5     , Liyue    , Pyro   , Polearm    , 15552   , 106      , 876
+Jean                        , 5     , Mondstadt, Anemo  , Sword      , 14695   , 239      , 769
+Kaedehara Kazuha            , 5     , Inazuma  , Anemo  , Sword      , 13348   , 297      , 807
+Kaeya                       , 4     , Mondstadt, Cryo   , Sword      , 11636   , 223      , 792
+Kamisato Ayaka              , 5     , Inazuma  , Cryo   , Sword      , 12858   , 342      , 784
+Kamisato Ayato              , 5     , Inazuma  , Hydro  , Sword      , 13715   , 299      , 769
+Kaveh                       , 4     , Sumeru   , Dendro , Claymore   , 11962   , 233      , 750
+Keqing                      , 5     , Liyue    , Electro, Sword      , 13103   , 323      , 799
+Kirara                      , 4     , Inazuma  , Dendro , Sword      , 12179   , 223      , 546
+Klee                        , 5     , Mondstadt, Pyro   , Catalyst   , 10287   , 311      , 615
+Kujou Sara                  , 4     , Inazuma  , Electro, Bow        , 9570    , 195      , 628
+Kuki Shinobu                , 4     , Inazuma  , Electro, Sword      , 12288   , 212      , 750
+Layla                       , 4     , Sumeru   , Cryo   , Sword      , 11092   , 216      , 655
+Lisa                        , 4     , Mondstadt, Electro, Catalyst   , 9570    , 232      , 573
+Lynette                     , 4     , Fontaine , Anemo  , Sword      , 12397   , 231      , 711
+Lyney                       , 5     , Fontaine , Pyro   , Bow        , 11021   , 318      , 537
+Mika                        , 4     , Mondstadt, Cryo   , Polearm    , 12506   , 223      , 713
+Mona                        , 5     , Mondstadt, Hydro  , Catalyst   , 10409   , 287      , 653
+Nahida                      , 5     , Sumeru   , Dendro , Catalyst   , 10360   , 298      , 630
+Nilou                       , 5     , Sumeru   , Hydro  , Sword      , 15184   , 229      , 728
+Ningguang                   , 4     , Liyue    , Geo    , Catalyst   , 9787    , 212      , 573
+Noelle                      , 4     , Mondstadt, Geo    , Claymore   , 12071   , 191      , 799
+Neuvillette                 , 5     , Fontaine , Hydro  , Catalyst   , 14695   , 208      , 576
+Qiqi                        , 5     , Liyue    , Cryo   , Sword      , 12368   , 287      , 922
+Raiden Shogun               , 5     , Inazuma  , Electro, Polearm    , 12907   , 337      , 789
+Razor                       , 4     , Mondstadt, Electro, Claymore   , 11962   , 234      , 751
+Rosaria                     , 4     , Mondstadt, Cryo   , Polearm    , 12289   , 240      , 710
+Sangonomiya Kokomi          , 5     , Inazuma  , Hydro  , Catalyst   , 13471   , 234      , 657
+Sayu                        , 4     , Inazuma  , Anemo  , Claymore   , 11854   , 244      , 745
+Shenhe                      , 5     , Liyue    , Cryo   , Polearm    , 12993   , 304      , 830
+Shikanoin Heizou            , 4     , Inazuma  , Anemo  , Catalyst   , 10657   , 225      , 683
+Sucrose                     , 4     , Mondstadt, Anemo  , Catalyst   , 9243    , 170      , 703
+Tartaglia                   , 5     , Snezhnaya, Hydro  , Bow        , 13103   , 301      , 815
+Thoma                       , 4     , Inazuma  , Pyro   , Polearm    , 10331   , 202      , 751
+Tighnari                    , 5     , Sumeru   , Dendro , Bow        , 10849   , 267      , 630
+"Traveler (Aether, Anemo)"  , 5     , Unknown  , Anemo  , Sword      , 10875   , 212      , 683
+"Traveler (Lumine, Anemo)"  , 5     , Unknown  , Anemo  , Sword      , 10875   , 212      , 683
+"Traveler (Aether, Geo)"    , 5     , Unknown  , Geo    , Sword      , 10875   , 212      , 683
+"Traveler (Lumine, Geo)"    , 5     , Unknown  , Geo    , Sword      , 10875   , 212      , 683
+"Traveler (Aether, Electro)", 5     , Unknown  , Electro, Sword      , 10875   , 212      , 683
+"Traveler (Lumine, Electro)", 5     , Unknown  , Electro, Sword      , 10875   , 212      , 683
+"Traveler (Aether, Dendro)" , 5     , Unknown  , Dendro , Sword      , 10875   , 212      , 683
+"Traveler (Lumine, Dendro)" , 5     , Unknown  , Dendro , Sword      , 10875   , 212      , 683
+"Traveler (Aether, Hydro)"  , 5     , Unknown  , Hydro  , Sword      , 10875   , 212      , 683
+"Traveler (Lumine, Hydro)"  , 5     , Unknown  , Hydro  , Sword      , 10875   , 212      , 683
+Venti                       , 5     , Mondstadt, Anemo  , Bow        , 10531   , 263      , 669
+Wanderer                    , 5     , Sumeru   , Anemo  , Catalyst   , 10164   , 327      , 607
+Wriothesley                 , 5     , Fontaine , Cryo   , Catalyst   , 13592   , 310      , 763
+Xiangling                   , 4     , Liyue    , Pyro   , Polearm    , 10875   , 225      , 669
+Xiao                        , 5     , Liyue    , Anemo  , Polearm    , 12736   , 349      , 799
+Xingqiu                     , 4     , Liyue    , Hydro  , Sword      , 10223   , 202      , 758
+Xinyan                      , 4     , Liyue    , Pyro   , Claymore   , 11201   , 249      , 799
+Yae Miko                    , 5     , Inazuma  , Electro, Catalyst   , 10372   , 340      , 569
+Yanfei                      , 4     , Liyue    , Pyro   , Catalyst   , 9352    , 240      , 587
+Yaoyao                      , 4     , Liyue    , Dendro , Polearm    , 12288   , 212      , 750
+Yelan                       , 5     , Liyue    , Hydro  , Bow        , 14450   , 244      , 548
+Yoimiya                     , 5     , Inazuma  , Pyro   , Bow        , 10164   , 323      , 615
+Yun Jin                     , 4     , Liyue    , Geo    , Polearm    , 10657   , 191      , 734
+Zhongli                     , 5     , Liyue    , Geo    , Polearm    , 14695   , 251      , 738
