@@ -1,5 +1,16 @@
 # Modul 2: Supervised Learning - Classification
 
+## Daftar Isi
+- [Modul 2: Supervised Learning - Classification](#modul-2-supervised-learning---classification)
+  - [Daftar Isi](#daftar-isi)
+  - [Pengenalan](#pengenalan)
+  - [Algoritma](#algoritma)
+    - [K-Nearest Neighbor (KNN)](#k-nearest-neighbor-knn)
+    - [Naive Bayes (NB)](#naive-bayes-nb)
+    - [Decision Tree (DT)](#decision-tree-dt)
+    - [Random Forest (RF)](#random-forest-rf)
+
+
 ## Pengenalan
 Supervised learning adalah paradigma dalam pembelajaran mesin yang menggunakan data berlabel untuk melatih algoritma matematis. Tujuannya adalah agar algoritma mempelajari hubungan antara input (fitur) dengan output (target) sehingga dapat secara akurat memprediksi output untuk data input yang belum terlihat.
 
@@ -137,12 +148,12 @@ Setiap tree dalam forest memprediksi kelas dari data OOB-nya, dan akurasinya dih
 
 Untuk RF yang terdiri dari $T$ tree, OOB error (untuk klasifikasi) dapat dihitung sebagai:
 
-$OOB Error = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(\^{y_{i, OOB}} \not ={y_i} )$
+$OOB \space Error = \frac{1}{N} \sum_{i=1}^N I(y_{i, OOB} \not ={y_i} )$
 
 Dimana:
 - $N$ = jumlah total sampel dalam dataset
-- $\mathbb{I}(condition) = \left\{\begin{matrix} 1 & if the condition is true \\ 0 & if the condition is false \end{matrix}\right.$
-- $\^{y_{i, OOB}}$ = majority vote dari out-of-bag predictions untuk sample $i$
+- $I(condition) = \left\{\begin{matrix} 1 & if the condition is true \\ 0 & if the condition is false \end{matrix}\right.$
+- $y_{i, OOB}$ = majority vote dari out-of-bag predictions untuk sample $i$
 - ${y_i}$ = label sebenarnya dari sample $i$
 
 Jika OOB error tinggi, model bisa diubah dengan cara menambah jumlah tree, menyesuaikan kedalaman tree, atau mengubah jumlah fitur yang digunakan untuk split node, hingga error OOB menurun. Dengan memanfaatkan OOB error, Random Forest secara otomatis menyesuaikan diri selama pelatihan untuk mencapai akurasi dan generalisasi yang baik tanpa memerlukan data validasi tambahan.
