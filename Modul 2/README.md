@@ -152,7 +152,7 @@ $OOB \space Error = \frac{1}{N} \sum_{i=1}^N I(y_{i, OOB} \not ={y_i} )$
 
 Dimana:
 - $N$ = jumlah total sampel dalam dataset
-- $I(condition) = \left\{\begin{matrix} 1 & if the condition is true \\ 0 & if the condition is false \end{matrix}\right.$
+- $I(condition)$ = Fungsi Indikator, 1 jika jika label yang diprediksi $y_{i, OOB}$ tidak sama dengan label sebenarnya ${y_i}$ dan 0 sebaliknya
 - $y_{i, OOB}$ = majority vote dari out-of-bag predictions untuk sample $i$
 - ${y_i}$ = label sebenarnya dari sample $i$
 
