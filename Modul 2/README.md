@@ -9,6 +9,11 @@
     - [Naive Bayes (NB)](#naive-bayes-nb)
     - [Decision Tree (DT)](#decision-tree-dt)
     - [Random Forest (RF)](#random-forest-rf)
+  - [Machine Learning Techniques (Bonus)](#machine-learning-techniques-bonus)
+    - [Cross-Validation (CV)](#cross-validation-cv)
+      - [K-Fold](#k-fold)
+      - [Stratified K-Fold](#stratified-k-fold)
+    - [Hyperparameter Tuning](#hyperparameter-tuning)
 
 
 ## Pengenalan
@@ -46,6 +51,7 @@ Pada contoh diatas:
 - **Jika K = 3**, tetangga dengan kelas A = 1 dan kelas B = 2. Sehingga data dikategorikan sebagai kelas B.
 - **Jika K = 7**, tetangga dengan kelas A = 4 dan kelas B = 3. Sehingga data dikategorikan sebagai kelas A.
 
+**Contoh Implementasi:**
 ```
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -78,6 +84,7 @@ $Class = argmax_c \space P(C|X)$
 
 Karena NB menggunakan prior probability dan feature likelihood, maka ketidakseimbangan kelas dapat dijelaskan secara alami, tanpa skew ke kelas mayoritas di dataset.
 
+**Contoh Implementasi:**
 ```
 from sklearn.naive_bayes import GaussianNB
 
@@ -92,7 +99,7 @@ Dalam skenario di mana terdapat ketergantungan fitur dan interpretabilitas sanga
 
 Dalam DT, struktur hierarki ini digunakan untuk membuat prediksi dengan membagi data secara sistematis ke dalam subset berdasarkan nilai fitur tertentu. Struktur ini menyerupai tree, di mana setiap node mewakili keputusan berdasarkan fitur, dan leaf, atau titik akhir, menunjukkan hasil prediksi.
 
-<img src="./assets/dt.jpg" alt="knn" width="fit-content" height="fit-content">
+<img src="./assets/dt.jpg" alt="dt" width="fit-content" height="fit-content">
 
 DT mengikuti serangkaian aturan untuk membagi data berdasarkan nilai fitur. Konstruksi DT melibatkan pemilihan fitur terbaik di setiap node untuk membagi data ke dalam kelas atau memprediksi variabel target. Untuk mengukur seberapa "baik" fitur yang dipilih sebagai node, sering digunakan Information Gain berdasarkan entropi.
 
@@ -122,6 +129,7 @@ $Gini(S) = 1 - \sum_{i=1}^c p_i^2$
 
 Pada setiap node, DT memilih fitur dan threshold yang sesuai yang memaksimalkan Information Gain atau meminimalkan Gini impurity. Proses ini berlanjut secara rekursif hingga kriteria penghentian (misalnya, max depth, min samples per leaf) terpenuhi.
 
+**Contoh Implementasi:**
 ```
 from sklearn.tree import DecisionTreeClassifier
 
@@ -136,7 +144,7 @@ DT mudah untuk dibangun, digunakan, dan diinterpretasikan tetapi secara praktik 
 
 dalam kata lain, tree model bekerja baik dengan data yang digunakan untuk pelatihan, namun tidak flexible ketika mengklasifikasikan sampel baru (overfitting). Salah satu cara mengatasi hal tersebut adalah dengan menggabungkan beberapa model, biasa disebut metode ensemble, untuk mengurangi variansi model.
 
-<img src="./assets/rf.jpg" alt="knn" width="fit-content" height="fit-content">
+<img src="./assets/rf.jpg" alt="rf" width="fit-content" height="fit-content">
 
 RF mengkonstruksi banyak DT pada waktu pelatihan. Setiap tree dikonstruksi dengan cara mengambil sampel data secara acak dari dataset asli (bootstrap data). Untuk setiap split pada node, RF hanya mempertimbangkan subset acak fitur (bukan semua fitur) dari dataset.
 
@@ -158,9 +166,156 @@ Dimana:
 
 Jika OOB error tinggi, model bisa diubah dengan cara menambah jumlah tree, menyesuaikan kedalaman tree, atau mengubah jumlah fitur yang digunakan untuk split node, hingga error OOB menurun. Dengan memanfaatkan OOB error, Random Forest secara otomatis menyesuaikan diri selama pelatihan untuk mencapai akurasi dan generalisasi yang baik tanpa memerlukan data validasi tambahan.
 
+**Contoh Implementasi:**
 ```
 from sklearn.ensemble import RandomForestClassifier
 
 clf = RandomForestClassifier(random_state=42)
 clf.fit(X, y)
+```
+
+## Machine Learning Techniques (Bonus)
+### Cross-Validation (CV) 
+Cross-Validation, atau out-of-sample testing, adalah teknik resampling yang digunakan untuk mengevaluasi performa model pada data yang tidak terlihat, mengurangi risiko overfitting. Teknik ini melibatkan pembagian dataset menjadi beberapa lipatan, menggunakan setiap lipatan sebagai test set dengan melatih lipatan yang lainnya pada model. Proses ini diulang beberapa kali, dengan setiap lipatan berfungsi sebagai test set satu kali.
+
+#### K-Fold
+Salah satu metode CV adalah K-Fold, di mana dataset dibagi menjadi `k` lipatan (fold) berukuran sama. Model dilatih sebanyak `k` kali, setiap kali menggunakan lipatan yang berbeda sebagai test set dan `k-1` lipatan yang tersisa sebagai train set. Performanya kemudian dirata-ratakan pada semua `k` percobaan untuk mendapatkan estimasi performa model.
+
+<img src="./assets/kfold.jpg" alt="kfold" width="fit-content" height="fit-content">
+
+Sebagai contoh, misalkan terdapat dataset dengan 100 data points dan kita menentukan banyak fold `k = 5`. Hal ini berarti K-Fold akan memiliki 5 lipatan, masing-masing dengan 20 titik data.
+
+| Iterasi | Train Set | Test Set |
+|---------|-----------|----------|
+| 1       |Fold 2, 3, 4, 5|Fold 1|
+| 2       |Fold 1, 3, 4, 5|Fold 2|
+| 3       |Fold 1, 2, 4, 5|Fold 3|
+| 4       |Fold 1, 2, 3, 5|Fold 4|
+| 5       |Fold 1, 2, 3, 4|Fold 5|
+
+**Contoh Implementasi:**
+```
+from sklearn.model_selection import KFold
+
+kf = KFold(n_splits=5, shuffle=True, random_state=42)
+
+for train_index, test_index in kf.split(X):
+    X_train, X_test = X[train_index], X[test_index]
+    y_train, y_test = y[train_index], y[test_index]
+    
+    model.fit(X_train, y_train)
+    
+    y_pred = model.predict(X_test)
+    
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Fold accuracy: {accuracy:.4f}")
+```
+
+#### Stratified K-Fold
+
+Adapun varian dari K-Fold yaitu Stratified K-Fold. Kurang lebih cara kerja sama seperti K-Fold, namun, memastikan setiap lipatan memiliki persentase sampel yang hampir sama untuk setiap kelas target. Hal ini berguna khususnya saat menangani dataset imbalance, di mana beberapa kelas lebih sedikit  daripada yang lain.
+
+<img src="./assets/skfold.jpg" alt="skfold" width="fit-content" height="fit-content">
+
+**Contoh Implementasi:**
+```
+from sklearn.model_selection import StratifiedKFold
+
+skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+for train_index, test_index in skf.split(X, y):
+    X_train, X_test = X[train_index], X[test_index]
+    y_train, y_test = y[train_index], y[test_index]
+    
+    model.fit(X_train, y_train)
+    
+    y_pred = model.predict(X_test)
+    
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Fold accuracy: {accuracy:.4f}")
+```
+
+atau gunakan alternatif (yang lebih mudah), `cross_val_scorer`
+
+```
+from sklearn.model_selection import cross_val_score, KFold
+
+kf = KFold(n_splits=5, shuffle=True, random_state=42) 
+# atau gunakan skfold
+
+scores = cross_val_score(model, X, y, cv=kf, scoring='accuracy')
+
+print(f"Fold accuracies: {scores}")
+print(f"Mean accuracy: {scores.mean():.4f}")
+```
+
+### Hyperparameter Tuning
+Proses mengoptimalkan parameter model pembelajaran mesin yang tidak dipelajari dari data tetapi ditetapkan sebelum proses pelatihan (oleh kita). Parameter ini, yang dikenal sebagai hyperparameter, mengendalikan perilaku algoritma pelatihan dan struktur model, seperti jumlah tetangga dalam K-Nearest Neighbors (KNN), atau depth decision tree.
+
+Metode Umum untuk Hyperparameter Tuning:
+- **Grid Search**: Metode brute force, dalam artian menguji semua kombinasi hiperparameter yang telah ditetapkan sebelumnya untuk menemukan yang terbaik. Cara ini efektif tetapi dapat menghabiskan banyak biaya komputasi.
+
+```
+from sklearn.model_selection import GridSearchCV
+
+model = RandomForestClassifier()
+
+param_grid = {
+    'n_estimators': [10, 50, 100],
+    'max_depth': [None, 10, 20],
+    'min_samples_split': [2, 5, 10]
+}
+
+grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5, scoring='accuracy')
+
+grid_search.fit(X, y)
+
+print("Best parameters found: ", grid_search.best_params_)
+print("Best cross-validation score: ", grid_search.best_score_)
+```
+
+- **Random Search**: Mengambil sampel kombinasi hyperparameter secara acak. Cara ini dapat lebih efisien daripada pencarian grid karena menjelajahi hyperparameter space yang lebih besar dengan evaluasi yang lebih sedikit.
+
+```
+from sklearn.model_selection import RandomizedSearchCV
+
+param_dist = {
+    'n_estimators': randint(10, 200),
+    'max_depth': [None, 10, 20, 30],
+    'min_samples_split': randint(2, 11)
+}
+
+random_search = RandomizedSearchCV(estimator=model, param_distributions=param_dist, n_iter=20, cv=5, scoring='accuracy', random_state=42)
+
+random_search.fit(X, y)
+
+print("Best parameters found: ", random_search.best_params_)
+print("Best cross-validation score: ", random_search.best_score_)
+```
+
+- **Optimasi Bayesian**: Menggunakan model probabilistik untuk menemukan hyperparameter yang optimal, menyeimbangkan eksplorasi dan eksploitasi, yang dapat lebih efisien daripada pencarian acak atau grid. Salah satu algoritma yang menggunakan model ini adalah TPE (Tree Parzen Optimizer).
+
+```
+import optuna
+
+def objective(trial):
+    n_estimators = trial.suggest_int('n_estimators', 10, 200)
+    max_depth = trial.suggest_int('max_depth', 1, 30)
+    min_samples_split = trial.suggest_int('min_samples_split', 2, 10)
+    
+    model = RandomForestClassifier(
+        n_estimators=n_estimators, 
+        max_depth=max_depth, 
+        min_samples_split=min_samples_split, 
+        random_state=42
+    )
+    
+    score = cross_val_score(model, X, y, cv=5, scoring='accuracy').mean()
+    return score
+
+study = optuna.create_study(direction='maximize')
+study.optimize(objective, n_trials=50)
+
+print("Best parameters found: ", study.best_params)
+print("Best cross-validation score: ", study.best_value)
 ```
