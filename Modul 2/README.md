@@ -52,7 +52,7 @@ Pada contoh diatas:
 - **Jika K = 7**, tetangga dengan kelas A = 4 dan kelas B = 3. Sehingga data dikategorikan sebagai kelas A.
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.neighbors import KNeighborsClassifier
 
 clf = KNeighborsClassifier(n_neighbors=3)
@@ -85,7 +85,7 @@ $Class = argmax_c \space P(C|X)$
 Karena NB menggunakan prior probability dan feature likelihood, maka ketidakseimbangan kelas dapat dijelaskan secara alami, tanpa skew ke kelas mayoritas di dataset.
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.naive_bayes import GaussianNB
 
 clf = GaussianNB()
@@ -130,7 +130,7 @@ $Gini(S) = 1 - \sum_{i=1}^c p_i^2$
 Pada setiap node, DT memilih fitur dan threshold yang sesuai yang memaksimalkan Information Gain atau meminimalkan Gini impurity. Proses ini berlanjut secara rekursif hingga kriteria penghentian (misalnya, max depth, min samples per leaf) terpenuhi.
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.tree import DecisionTreeClassifier
 
 clf = DecisionTreeClassifier()
@@ -167,7 +167,7 @@ Dimana:
 Jika OOB error tinggi, model bisa diubah dengan cara menambah jumlah tree, menyesuaikan kedalaman tree, atau mengubah jumlah fitur yang digunakan untuk split node, hingga error OOB menurun. Dengan memanfaatkan OOB error, Random Forest secara otomatis menyesuaikan diri selama pelatihan untuk mencapai akurasi dan generalisasi yang baik tanpa memerlukan data validasi tambahan.
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.ensemble import RandomForestClassifier
 
 clf = RandomForestClassifier(random_state=42)
@@ -194,7 +194,7 @@ Sebagai contoh, misalkan terdapat dataset dengan 100 data points dan kita menent
 | 5       |Fold 1, 2, 3, 4|Fold 5|
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.model_selection import KFold
 
 kf = KFold(n_splits=5, shuffle=True, random_state=42)
@@ -218,7 +218,7 @@ Adapun varian dari K-Fold yaitu Stratified K-Fold. Kurang lebih cara kerja sama 
 <img src="./assets/skfold.jpg" alt="skfold" width="fit-content" height="fit-content">
 
 **Contoh Implementasi:**
-```
+```python
 from sklearn.model_selection import StratifiedKFold
 
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
@@ -237,7 +237,7 @@ for train_index, test_index in skf.split(X, y):
 
 atau gunakan alternatif (yang lebih mudah), `cross_val_scorer`
 
-```
+```python
 from sklearn.model_selection import cross_val_score, KFold
 
 kf = KFold(n_splits=5, shuffle=True, random_state=42) 
@@ -255,7 +255,7 @@ Proses mengoptimalkan parameter model pembelajaran mesin yang tidak dipelajari d
 Metode Umum untuk Hyperparameter Tuning:
 - **Grid Search**: Metode brute force, dalam artian menguji semua kombinasi hiperparameter yang telah ditetapkan sebelumnya untuk menemukan yang terbaik. Cara ini efektif tetapi dapat menghabiskan banyak biaya komputasi.
 
-```
+```python
 from sklearn.model_selection import GridSearchCV
 
 model = RandomForestClassifier()
@@ -276,7 +276,7 @@ print("Best cross-validation score: ", grid_search.best_score_)
 
 - **Random Search**: Mengambil sampel kombinasi hyperparameter secara acak. Cara ini dapat lebih efisien daripada pencarian grid karena menjelajahi hyperparameter space yang lebih besar dengan evaluasi yang lebih sedikit.
 
-```
+```python
 from sklearn.model_selection import RandomizedSearchCV
 
 param_dist = {
@@ -295,7 +295,7 @@ print("Best cross-validation score: ", random_search.best_score_)
 
 - **Optimasi Bayesian**: Menggunakan model probabilistik untuk menemukan hyperparameter yang optimal, menyeimbangkan eksplorasi dan eksploitasi, yang dapat lebih efisien daripada pencarian acak atau grid. Salah satu algoritma yang menggunakan model ini adalah TPE (Tree Parzen Optimizer).
 
-```
+```python
 import optuna
 
 def objective(trial):
