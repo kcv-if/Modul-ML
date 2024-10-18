@@ -9,6 +9,8 @@
     - [Naive Bayes (NB)](#naive-bayes-nb)
     - [Decision Tree (DT)](#decision-tree-dt)
     - [Random Forest (RF)](#random-forest-rf)
+    - [Support Vector Machine (SVM)](#support-vector-machine-svm)
+      - [The Kernel Trick](#the-kernel-trick)
   - [Machine Learning Techniques (Bonus)](#machine-learning-techniques-bonus)
     - [Cross-Validation (CV)](#cross-validation-cv)
       - [K-Fold](#k-fold)
@@ -55,6 +57,15 @@ Pada contoh diatas:
 ```python
 from sklearn.neighbors import KNeighborsClassifier
 
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
+
 clf = KNeighborsClassifier(n_neighbors=3)
 clf.fit(X, y)
 ```
@@ -87,6 +98,15 @@ Karena NB menggunakan prior probability dan feature likelihood, maka ketidakseim
 **Contoh Implementasi:**
 ```python
 from sklearn.naive_bayes import GaussianNB
+
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
 
 clf = GaussianNB()
 clf.fit(X, Y)
@@ -133,6 +153,15 @@ Pada setiap node, DT memilih fitur dan threshold yang sesuai yang memaksimalkan 
 ```python
 from sklearn.tree import DecisionTreeClassifier
 
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
+
 clf = DecisionTreeClassifier()
 clf = clf.fit(X, Y)
 ```
@@ -170,8 +199,125 @@ Jika OOB error tinggi, model bisa diubah dengan cara menambah jumlah tree, menye
 ```python
 from sklearn.ensemble import RandomForestClassifier
 
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
+
 clf = RandomForestClassifier(random_state=42)
 clf.fit(X, y)
+```
+
+### Support Vector Machine (SVM)
+SVM menyimpang dari approach tree yakni seperti KNN, objek yang ingin diklasifikasikan direpresentasikan sebagai suatu titik di n-dimensional space dimana setiap sumbu menandakan fitur. SVM mengklasifikasi dengan membuat hyperplane, atau decision boundary, dengan bidang berdimensi n-1 (misalnya hyperplane garis untuk dimensi 2 dan hyperplane papan untuk 3 dimensi) sedemikian rupa sehingga semua titik suatu kelas berada di satu sisi, dan kelas lainnya berada di sisi lainnya.
+
+<img src="./assets/hyperplane-for-2d-plane.jpg" alt="1d Hyperplane" width="fit-content" height="fit-content">
+
+<img src="./assets/hyperplane-for-3d-plane.jpg" alt="2d Hyperplane" width="fit-content" height="fit-content">
+
+SVM mencoba menemukan satu hyperplane yang paling baik yang memisah kedua kelas tersebut dalam artian memaksimalkan jarak ke titik-titik dalam kedua kelas tersebut. Jarak ini biasa disebut margin $w$ dan titik yang berada di dalam margin adalah support vector.
+
+<img src="./assets/support-vector.jpg" alt="Supporting Vectors" width="fit-content" height="fit-content">
+
+Under the hood, SVM menyelesaikan Convex Optimization Problem yang memaksimalkan margin tersebut:
+
+$max_w,_b ||w||^{-2}$
+
+dengan constraints titik kelas harus berada di sisi hyperplane yang benar:
+
+$w^T * x_1 + b \ge 1 \space\space \forall x_1 \in C_1$ 
+<br>
+$w^T * x_2 + b \le -1 \space\space \forall x_2 \in C_2$
+
+**Contoh Implementasi:**
+```py
+from sklearn.svm import SVC
+
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
+
+clf = SVC()
+clf.fit(X, y)
+```
+
+SVM tradisional menggunakan boundary linear merupakan kelebihan karena mudah untuk diimplementasi, tetapi juga merupakan limitasi.
+
+Untuk kebanyakan kasus, titik-titik tidak dapat dipisahkan menggunakan boundary linear. Workaround umum pada kasus ini adalah dengan
+1. Augmentasi data dengan fungsi non-linear ke dimensi lebih tinggi.
+
+<img src="./assets/workaround-1.jpg" alt="Workaround Step 1" width="fit-content" height="fit-content">
+
+2. Cari hyperplane yang memisahkan kedua kelas.
+
+<img src="./assets/workaround-2.jpg" alt="Workaround Step 2" width="fit-content" height="fit-content">
+
+3. Proyeksikan kembali ke dimensi awal.
+
+<img src="./assets/workaround-3.jpg" alt="Workaround Step 3" width="fit-content" height="fit-content">
+
+**Contoh Implementasi:**
+```py
+from sklearn.svm import SVC
+
+X = [
+    [0.1, 2.3],
+    [-1.5, 2.5],
+    [2.0, -4.3],
+    # ...
+]
+
+y = [0, 1, 1, ] # ...
+
+# non-linear transformation x^2 + y^2
+fX = [ (x[0], x[1], x[0]**2 + x[1]**2) for x in X]
+
+clf = SVC()
+clf.fit(fX, y)
+```
+
+Tetapi approach ini memiliki masalah utama, yakni kita harus menentukan non-linear function tersebut, yang cukup sulit terutama pada data dengan fitur yang banyak. Adapun masalah lain jika kita ingin decision boundary yang kompleks, kita perlu menambakan dimensi dari output non-linear function yang tentunya akan menambahkan waktu dan/atau kekuatan komputasi.
+
+#### The Kernel Trick
+Kernel trick dibuat sebagai solusi dari kedua masalah tersebut. Konsepnya adalah algoritma SVM tidak perlu mengetahui setiap titik dipetakan di non-linear function, tetapi bagaimana suatu titik dibandingkan dengan titik lain setelah ditranformasikan.
+
+Secara matematis, ini sama dengan inner product suatu transformasi titik $x$ dengan transformsi titik lain $x'$, besaran inilah yang dinamakan kernel function:
+
+$k(x, x') = f(x)^T * f(x')$
+
+Berikut beberapa contoh kernel function:
+- Linear Kernel (flat decision boundary)
+
+<img src="./assets/linear-kernel.jpg" alt="Linear Kernel" width="fit-content" height="fit-content">
+
+- Polynomial Kernel (curvy decision boundary)
+
+<img src="./assets/polynomial-kernel.jpg" alt="Poly Kernel" width="fit-content" height="fit-content">
+
+- RBF Kernel (infinite dimensional function)
+
+<img src="./assets/rbf1-kernel.jpg" alt="RBF Kernel Low Gamma" width="fit-content" height="fit-content">
+
+<img src="./assets/rbf2-kernel.jpg" alt="RBF Kernel High Gamma" width="fit-content" height="fit-content">
+
+**Contoh Implementasi**
+```py
+# ...
+
+clf = SVC(kernel='linear')
+clf = SVC(kernel='poly')
+clf = SVC(kernel='rbf', gamma=0.02)
+
+# ...
 ```
 
 ## Machine Learning Techniques (Bonus)
