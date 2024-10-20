@@ -167,7 +167,8 @@ Setiap neuron dalam suatu layer akan terhubung ke semua neuron dari layer sebelu
 
 Fungsi neuron diatas agak sulit ditulis terutama jika kita ingin menotasikan nilai seluruh neuron pada suatu layer. Jika terdapat suatu layer dengan $n$ neuron dan pada layer sebelumnya terdapat $k$ neuron, cara yang lebih ringkas (dan standar) secara notasi untuk merepresentasikan koneksi ini adalah:
 
-$\sigma \left( \\
+$$
+\sigma \left(
 \begin{bmatrix}
 w_{0,0} & w_{0,1} & \cdots & w_{0,n} \\
 w_{1,0} & w_{1,1} & \cdots & w_{1,n} \\
@@ -186,13 +187,14 @@ b_0 \\
 b_1 \\
 \vdots \\
 b_n \\
-\end{bmatrix}\right)=
+\end{bmatrix}\right) =
 \begin{bmatrix}
 a_0^{(1)} \\
 a_1^{(1)} \\
 \vdots \\
 a_n^{(1)} \\
-\end{bmatrix}$
+\end{bmatrix}
+$$
 
 Jika kita anotasikan setiap vector lebih lanjut, misalkan $W$ vektor bobot antar kedua layer, $a^{(i)}$ vektor nilai activation, dan $b$ vektor bias, maka:
 
