@@ -309,7 +309,7 @@ Berikut beberapa contoh kernel function:
 
 <img src="./assets/rbf2-kernel.jpg" alt="RBF Kernel High Gamma" width="fit-content" height="fit-content">
 
-**Contoh Implementasi**
+**Contoh Implementasi:**
 ```py
 # ...
 
