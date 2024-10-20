@@ -236,19 +236,24 @@ Cari tahu slope fungsi nilai sekarang, lalu geser ke kiri jika slope itu positif
 
 Secara matematis, slope atau gradien adalah vektor turunan parsial cost function terhadap setiap parameter suatu neuron adalah:
 
-$\nabla_\theta C(\theta) = \begin{bmatrix}
-    \frac{\partial C}{\partial \theta_0} \\
-    \frac{\partial C}{\partial \theta_1} \\
-    \vdots \\
-    \frac{\partial C}{\partial \theta_n}
-\end{bmatrix}$
+$$
+\nabla_\theta C(\theta) = \begin{bmatrix} 
+\frac{\partial C}{\partial \theta_0} \\ 
+\frac{\partial C}{\partial \theta_1} \\ 
+\vdots \\ 
+\frac{\partial C}{\partial \theta_n} 
+\end{bmatrix}
+$$
+
 
 #### Backpropagation
 Gradien suatu fungsi pada suatu titik menunjukkan arah peningkatan paling curam pada fungsi tersebut. Jadi, jika kita menggunakan gradien asli $\nabla_\theta C(\theta)$, kita akan bergerak ke arah di mana fungsi biaya $C(\theta)$ meningkat. Berdasarkan itu, berarti nilai negatif dari gradien ($-\nabla_\theta C(\theta)$) akan menunjuk ke arah penurunan paling tajam dalam cost function.
 
 Maka, untuk memindahkan $\theta$ ke nilai yang meminimalkan cost function, kita kurangi $\theta$ dengan gradien negatif:
 
-$\theta \lArr \theta - \eta \nabla_\theta C(\theta)$
+$$
+\theta \leftarrow \theta - \eta \nabla_\theta C(\theta)
+$$
 
 Dimana $\eta$ adalah learning rate, mengontrol seberapa besar langkah yang diambil.
 
