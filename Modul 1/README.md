@@ -1,9 +1,14 @@
-# Modul 1
-## Unsupervised Learning
+# Modul 1: Unsupervised Learning
+
+## Daftar Isi
+- [Definisi](#definisi)
+- [Apa saja tipe unsupervised learning](#apa-saja-tipe-unsupervised-learning)
+- [Clustering](#clustering)
+- [Principal Component Analysis](#principal-component-analysis)
 
 <img src="./assets/title.webp" alt="title" width="800" height="300">
 
-### Definisi
+## Definisi
 Model machine learning yang dilatih dengan data **tanpa** menggunakan label.
 
 Yang dilakukan model adalah **mempelajari pola dari data**
