@@ -20,15 +20,15 @@ CNN (Convolutional Neural Network) adalah salah satu jenis arsitektur deep learn
 CNN sendiri memiliki beberapa bagian layer, yakni:
 - Convolutional Layer: Layer untuk identifikasi fitur sederhana dari gambar (tekstur, garis tepi, dsb).
 
-<img src="./assets/convolutional.gif" width="400">
+<img src="./assets/convolutional.gif" width="800">
 
 - Pooling Layer: Layer untuk mengurangi dimensi dari gambar.
 
-<img src="./assets/pooling.gif" width="400">
+<img src="./assets/pooling.gif" width="800">
 
 - Fully Connected Layer: Layer untuk menghubungkan hasil dari layer sebelumnya dengan output layer.
 
-<img src="./assets/fully_connect.jpeg" width="400">
+<img src="./assets/fully_connect.jpeg" width="800">
 
 ### Contoh Hasil Ektraksi Fitur Gambar dengan CNN
 
@@ -43,7 +43,9 @@ CNN memiliki beberapa parameter, yakni:
 
 UNTUK VISUALISASI PARAMETER, BISA DILIHAT PADA:
 1. [Visualisasi 1](https://poloclub.github.io/cnn-explainer/)
-2. [Visualisasi 2](https://ezyang.github.io/convolution-visualizer/index.html).
+2. [Visualisasi 2](https://ezyang.github.io/convolution-visualizer/index.html)
+
+Berikut ini adalah dokumentasi parameter pada [`tf.keras.layers.Conv2D`](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2D)
 
 ### Tambahan Layer Pada CNN
 - `Batch Normalization`:
