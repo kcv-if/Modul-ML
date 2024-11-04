@@ -3,8 +3,6 @@
 ## Daftar Isi
 - [Definisi](#definisi)
 - [Apa saja tipe unsupervised learning](#apa-saja-tipe-unsupervised-learning)
-    - [Clustering](#clustering)
-    - [Dimensionality Reduction](#dimensionality-reduction)
 - [Clustering](#clustering-1)
     - [Prasyarat](#prasyarat)
     - [K-Means Clustering](#k-means-clustering)
