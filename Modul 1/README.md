@@ -1,16 +1,16 @@
 # Modul 1: Unsupervised Learning
 
 ## Daftar Isi
-1. [Definisi](#definisi)
-2. [Apa saja tipe unsupervised learning](#apa-saja-tipe-unsupervised-learning)
+- [Definisi](#definisi)
+- [Apa saja tipe unsupervised learning](#apa-saja-tipe-unsupervised-learning)
     - [Clustering](#clustering)
     - [Dimensionality Reduction](#dimensionality-reduction)
-3. [Clustering](#clustering-1)
+- [Clustering](#clustering-1)
     - [Prasyarat](#prasyarat)
     - [K-Means Clustering](#k-means-clustering)
     - [Hierarchical Clustering](#hierarchical-clustering)
     - [DBSCAN](#dbscan)
-4. [Principal Component Analysis](#principal-component-analysis)
+- [Principal Component Analysis](#principal-component-analysis)
 
 <img src="./assets/title.webp" alt="title" width="800" height="300">
 
