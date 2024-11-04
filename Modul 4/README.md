@@ -18,17 +18,17 @@ CNN (Convolutional Neural Network) adalah salah satu jenis arsitektur deep learn
 
 ### CNN Layers
 CNN sendiri memiliki beberapa bagian layer, yakni:
-- Convolutional Layer: Layer untuk identifikasi fitur sederhana dari gambar (tekstur, garis tepi, dsb).
+- `Convolutional Layer`: Layer untuk identifikasi fitur sederhana dari gambar (tekstur, garis tepi, dsb).
 
-<img src="./assets/convolutional.gif" width="800">
+<img src="./assets/convolutional.gif" width="900">
 
-- Pooling Layer: Layer untuk mengurangi dimensi dari gambar.
+- `Pooling Layer`: Layer untuk mengurangi dimensi dari gambar.
 
-<img src="./assets/pooling.gif" width="800">
+<img src="./assets/pooling.gif" width="900">
 
-- Fully Connected Layer: Layer untuk menghubungkan hasil dari layer sebelumnya dengan output layer.
+- `Fully Connected Layer`: Layer untuk menghubungkan hasil dari layer sebelumnya dengan output layer.
 
-<img src="./assets/fully_connect.jpeg" width="800">
+<img src="./assets/fully_connect.jpeg" width="900">
 
 ### Contoh Hasil Ektraksi Fitur Gambar dengan CNN
 
