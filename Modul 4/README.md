@@ -37,7 +37,7 @@ CNN sendiri memiliki beberapa bagian layer, yakni:
 
 ### Contoh Hasil Ektraksi Fitur Gambar dengan CNN
 
-Untuk detail hasil ekstraksi fitur gambar dengan CNN, bisa dilihat pada [notebook ini](./example_feature_extraction.ipynb).
+Untuk detail hasil ekstraksi fitur gambar dengan CNN, bisa dilihat pada [notebook ini](./modelling/example_feature_extraction.ipynb).
 
 ### Parameter
 CNN memiliki beberapa parameter, yakni:
