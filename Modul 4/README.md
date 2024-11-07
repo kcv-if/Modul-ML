@@ -1,7 +1,7 @@
 # Modul 4: CNN & Deployment
 
 ## Daftar Isi
-- [Modul 4: CNN (Convolutional Neural Network)](#modul-4-cnn-convolutional-neural-network)
+- [Modul 4: CNN & Deployment](#modul-4-cnn-&-deployment)
   - [Daftar Isi](#daftar-isi)
   - [Pengenalan](#pengenalan)
   - [Deskripsi](#deskripsi)
