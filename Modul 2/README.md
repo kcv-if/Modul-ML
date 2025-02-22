@@ -35,15 +35,15 @@ Untuk dua titik $X = (x_1, x_2, ..., x_n)$ dan $Y = (y_1, y_2, ..., y_n)$, jarak
 
 **Euclidean Distance**
 
-$d(X, Y) = \sqrt{\sum_{i=1}^n (x_i-y_i)^2}$
+$$d(X, Y) = \sqrt{\sum_{i=1}^n (x_i-y_i)^2}$$
 
 **Manhattan Distance** 
 
-$d(X, Y) = \sum_{i=1}^n |x_i-y_i|$
+$$d(X, Y) = \sum_{i=1}^n |x_i-y_i|$$
 
 **Minkowski Distance** (generalisasi euclidean dan manhattan) 
 
-$d(X, Y) = (\sum_{i=1}^n |x_i-y_i|^p)^\frac{1}{p}$
+$$d(X, Y) = (\sum_{i=1}^n |x_i-y_i|^p)^\frac{1}{p}$$
 
 dimana `p=1`manhattan, `p=2` euclidean.
 
@@ -79,19 +79,19 @@ Tidak seperti KNN yang mengandalkan data tetangga, NB menghitung probabilitas ko
 
 Probabilitas kelas $C$ diberikan $X = (x_1, x_2, ..., x_n)$ adalah:
 
-$P(C|X) = \frac{P(X|C) \times P(C)}{P(X)}$
+$$P(C|X) = \frac{P(X|C) \times P(C)}{P(X)}$$
 
 NB mengasumsi semua fitur bersifat independen secara kondisional diberikan kelasnya, yang menyederhanakan probabilitas $P(X|C)$ terhadap produk probabilitas individu dari fitur:
 
-$P(X|C) = P(x_1|C)\times P(x_2|C)\times ... \times P(x_n|C)$
+$$P(X|C) = P(x_1|C)\times P(x_2|C)\times ... \times P(x_n|C)$$
 
 Sehingga formula menjadi:
 
-$P(C|X) = \frac{P(C)\times P(x_1|C)\times P(x_2|C)\times ... \times P(x_n|C)}{P(X)}$
+$$P(C|X) = \frac{P(C)\times P(x_1|C)\times P(x_2|C)\times ... \times P(x_n|C)}{P(X)}$$
 
 Untuk mengklasifikasikan data baru, hitung $P(C|X)$ untuk setiap kelas $C$ dan menetapkan kelas dengan probabilitas tertinggi:
 
-$Class = argmax_c \space P(C|X)$
+$$Class = argmax_c \space P(C|X)$$
 
 Karena NB menggunakan prior probability dan feature likelihood, maka ketidakseimbangan kelas dapat dijelaskan secara alami, tanpa skew ke kelas mayoritas di dataset.
 
@@ -125,7 +125,7 @@ DT mengikuti serangkaian aturan untuk membagi data berdasarkan nilai fitur. Kons
 
 Entropi $(H)$ mengukur impurity suatu dataset:
 
-$H(S) = -\sum_{i=1}^c p_i \times \log_2 (p_i)$
+$$H(S) = -\sum_{i=1}^c p_i \times \log_2 (p_i)$$
 
 Dimana:
 - $S$ = dataset
@@ -134,7 +134,7 @@ Dimana:
 
 dan ukuran pengurangan entropi setelah kumpulan data dipecah berdasarkan atribut $A$ atau Information Gain $(IG)$:
 
-$IG(S, A) = H(S) - [\sum_{i=1}^k \frac{|S_v|}{|S|} \times H(S_v)]$
+$$IG(S, A) = H(S) - [\sum_{i=1}^k \frac{|S_v|}{|S|} \times H(S_v)]$$
 
 Dimana:
 - $S$ = dataset
@@ -145,7 +145,7 @@ Dimana:
 
 Alternatif dari entropi yang digunakan untuk klasifikasi adalah Gini Impurity $(Gini)$:
 
-$Gini(S) = 1 - \sum_{i=1}^c p_i^2$
+$$Gini(S) = 1 - \sum_{i=1}^c p_i^2$$
 
 Pada setiap node, DT memilih fitur dan threshold yang sesuai yang memaksimalkan Information Gain atau meminimalkan Gini impurity. Proses ini berlanjut secara rekursif hingga kriteria penghentian (misalnya, max depth, min samples per leaf) terpenuhi.
 
@@ -185,7 +185,7 @@ Setiap tree dalam forest memprediksi kelas dari data OOB-nya, dan akurasinya dih
 
 Untuk RF yang terdiri dari $T$ tree, OOB error (untuk klasifikasi) dapat dihitung sebagai:
 
-$OOB \space Error = \frac{1}{N} \sum_{i=1}^N I(y_{i, OOB} \not ={y_i} )$
+$$OOB \space Error = \frac{1}{N} \sum_{i=1}^N I(y_{i, OOB} \not ={y_i} )$$
 
 Dimana:
 - $N$ = jumlah total sampel dalam dataset
@@ -225,13 +225,15 @@ SVM mencoba menemukan satu hyperplane yang paling baik yang memisah kedua kelas 
 
 Under the hood, SVM menyelesaikan Convex Optimization Problem yang memaksimalkan margin tersebut:
 
-$max_w,_b ||w||^{-2}$
+$$max_w,_b ||w||^{-2}$$
 
 dengan constraints titik kelas harus berada di sisi hyperplane yang benar:
 
-$w^T * x_1 + b \ge 1 \space\space \forall x_1 \in C_1$ 
+$$w^T * x_1 + b \ge 1 \space\space \forall x_1 \in C_1$$ 
+
 <br>
-$w^T * x_2 + b \le -1 \space\space \forall x_2 \in C_2$
+
+$$w^T * x_2 + b \le -1 \space\space \forall x_2 \in C_2$$
 
 **Contoh Implementasi:**
 ```py
@@ -292,7 +294,7 @@ Kernel trick dibuat sebagai solusi dari kedua masalah tersebut. Konsepnya adalah
 
 Secara matematis, ini sama dengan inner product suatu transformasi titik $x$ dengan transformsi titik lain $x'$, besaran inilah yang dinamakan kernel function:
 
-$k(x, x') = f(x)^T * f(x')$
+$$k(x, x') = f(x)^T * f(x')$$
 
 Berikut beberapa contoh kernel function:
 - Linear Kernel (flat decision boundary)
