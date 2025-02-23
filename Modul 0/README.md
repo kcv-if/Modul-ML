@@ -122,7 +122,7 @@ deactivate
 
 atau upload notebook sendiri
 
-<img src="./assets/new_notebook.png" alt="colab upload ui">
+<img src="./assets/upload_notebook.png" alt="colab upload ui">
 
 3. Jalankan notebook
 
