@@ -113,7 +113,7 @@ NEAT (NeuroEvolution of Augmenting Topologies) adalah algoritma yang menggabungk
 **Contoh Implementasi**
 Untuk implementasinya, bisa di cek pada kode [neat_car.py](/Modul%205/NEAT/neat_car.py). Goal dari kode ini adalah melatih mobil untuk mengelilingi lintasan tanpa menabrak dinding.
 
-![NEAT](//Modul%205/assets/neat_car_image.png)
+![NEAT](/Modul%205/assets/neat_car_image.png)
 
 ```python
 def run_car(genomes, config):
