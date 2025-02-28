@@ -37,11 +37,11 @@ $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
 $$
 
-- **$Q(s, a)$** = Seberapa baik Agen dalam mengambil aksi ($ a $) pada suatu state ($ s $).  
-- **$ \alpha $** = *Learning rate* pada fungsi nilai.
-- **$ r $** = Reward yang diterima setelah melakukan aksi ($ a $).  
-- **$ \gamma $** = *Discount factor* yang menentukan seberapa jauh Agen mempertimbangkan reward masa depan.  
-- **$ \max_{a'} Q(s', a') $** = Nilai terbaik yang bisa diperoleh dari state selanjutnya ($ s' $).  
+- **$Q(s, a)$** = Seberapa baik Agen dalam mengambil aksi ($a$) pada suatu state ($s$).  
+- **$\alpha$** = *Learning rate* pada fungsi nilai.
+- **$r$** = Reward yang diterima setelah melakukan aksi ($a$).  
+- **$\gamma$** = *Discount factor* yang menentukan seberapa jauh Agen mempertimbangkan reward masa depan.  
+- **$\max_{a'} Q(s', a')$** = Nilai terbaik yang bisa diperoleh dari state selanjutnya ($s'$).  
 
 2. **Policy-Based**: **Mempelajari policy \( \pi(a | s) \)** tanpa perlu fungsi nilai, dengan menggunakan metode optimasi seperti *gradient ascent*.  
    \[
