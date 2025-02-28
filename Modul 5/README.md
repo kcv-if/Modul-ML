@@ -14,12 +14,12 @@
 ## Terminologi
 - `Agent`: mempunyai tugas untuk mencapai tujuan (goal)
 - `Environment`: memberikan feedback terhadap aksi yang dilakukan Agen
-- `Current State` (s): kondisi atau situasi saat ini berdasarkan perspektif Agen
-- `Next State` (s'): kondisi atau situasi berikutnya setelah Agen melakukan aksi
+- `Current State` ($s$): kondisi atau situasi saat ini berdasarkan perspektif Agen
+- `Next State` ($s'$): kondisi atau situasi berikutnya setelah Agen melakukan aksi
 - `Goal`: tujuan yang ingin dicapai oleh Agen
 - `Action` (a): aksi yang akan dipilih Agen untuk mencapai tujuan
 - `Policy` ($\pi$): strategi / kebijakan yang digunakan Agen untuk memilih aksi
-- `Reward` (R): sebuah nilai untuk mengukur keberhasilan aksi dari Agen
+- `Reward` ($R$): sebuah nilai untuk mengukur keberhasilan aksi dari Agen
 - `Penalty`: sebuah nilai untuk mengukur kegagalan aksi dari Agen
 
 ## Pengenalan
@@ -31,13 +31,13 @@ Faktanya, RL banyak digunakan dalam berbagai aplikasi seperti *game*, *robotics*
 
 ## Pendekatan Reinforcement Learning
 Ada beberapa pendekatan yang dapat digunakan dalam RL, diantaranya:
-1. **Value-Based**: Menentukan policy secara tidak langsung dengan **mempelajari fungsi nilai aksi** \( Q(s, a) \) dan memilih aksi dengan nilai tertinggi.
+1. **Value-Based**: Menentukan policy secara tidak langsung dengan **mempelajari fungsi nilai aksi** $Q(s, a)$ dan memilih aksi dengan nilai tertinggi.
 
 $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
 $$
 
-- **$ Q(s, a) $** = Seberapa baik Agen dalam mengambil aksi ($ a $) pada suatu state ($ s $).  
+- **$Q(s, a)$** = Seberapa baik Agen dalam mengambil aksi ($ a $) pada suatu state ($ s $).  
 - **$ \alpha $** = *Learning rate* pada fungsi nilai.
 - **$ r $** = Reward yang diterima setelah melakukan aksi ($ a $).  
 - **$ \gamma $** = *Discount factor* yang menentukan seberapa jauh Agen mempertimbangkan reward masa depan.  
