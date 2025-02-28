@@ -18,7 +18,7 @@
 - `Next State` (s'): kondisi atau situasi berikutnya setelah Agen melakukan aksi
 - `Goal`: tujuan yang ingin dicapai oleh Agen
 - `Action` (a): aksi yang akan dipilih Agen untuk mencapai tujuan
-- `Policy` ($ \pi $): strategi / kebijakan yang digunakan Agen untuk memilih aksi
+- `Policy` ($\pi$): strategi / kebijakan yang digunakan Agen untuk memilih aksi
 - `Reward` (R): sebuah nilai untuk mengukur keberhasilan aksi dari Agen
 - `Penalty`: sebuah nilai untuk mengukur kegagalan aksi dari Agen
 
