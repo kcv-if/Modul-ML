@@ -31,7 +31,8 @@ Faktanya, RL banyak digunakan dalam berbagai aplikasi seperti *game*, *robotics*
 
 ## Pendekatan Reinforcement Learning
 Ada beberapa pendekatan yang dapat digunakan dalam RL, diantaranya:
-1. **Value-Based**: Menentukan policy secara tidak langsung dengan **mempelajari fungsi nilai aksi** \( Q(s, a) \) dan memilih aksi dengan nilai tertinggi.  
+1. **Value-Based**: Menentukan policy secara tidak langsung dengan **mempelajari fungsi nilai aksi** \( Q(s, a) \) dan memilih aksi dengan nilai tertinggi. 
+ 
    \[
    Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)
    \]
