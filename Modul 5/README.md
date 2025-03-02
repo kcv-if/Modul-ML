@@ -43,30 +43,34 @@ $$
 - **$\gamma$** = *Discount factor* yang menentukan seberapa jauh Agen mempertimbangkan reward masa depan.  
 - **$\max_{a'} Q(s', a')$** = Nilai terbaik yang bisa diperoleh dari state selanjutnya ($s'$).  
 
-2. **Policy-Based**: **Mempelajari policy $ \pi(a | s) $** tanpa perlu fungsi nilai, dengan menggunakan metode optimasi seperti *gradient ascent*.  
+2. **Policy-Based**: **Mempelajari policy $\pi(a | s)$** tanpa perlu fungsi nilai, dengan menggunakan metode optimasi seperti *gradient ascent*.  
+
 $$
 \nabla J(\theta) = \mathbb{E} \left[ \nabla_{\theta} \log \pi_{\theta} (a | s) R \right]
 $$
-- **$ J(\theta) $** = Fungsi objektif berupa reward yang ingin dimaksimalkan.  
-- **$ \theta $** = Parameter dari policy ($ \pi $)  
-- **$ \mathbb{E} [\cdot] $** = Ekspektasi rata-rata dari sampel yang diperoleh selama eksplorasi.
-- **$ \nabla_{\theta} \log \pi_{\theta} (a | s) $** = Gradien dari logaritma policy.
-- **$ \pi_{\theta} (a | s) $** = Probabilitas memilih aksi ($ a $) dalam state ($ s $).  
-- **$ R $** = Reward total yang diperoleh setelah mengambil aksi ($ a $). 
+
+- **$J(\theta)$** = Fungsi objektif berupa reward yang ingin dimaksimalkan.  
+- **$\theta$** = Parameter dari policy ($\pi$)  
+- **$\mathbb{E} [\cdot]$** = Ekspektasi rata-rata dari sampel yang diperoleh selama eksplorasi.
+- **$\nabla_{\theta} \log \pi_{\theta} (a | s)$** = Gradien dari logaritma policy.
+- **$\pi_{\theta} (a | s)$** = Probabilitas memilih aksi ($a$) dalam state ($s$).  
+- **$R$** = Reward total yang diperoleh setelah mengambil aksi ($a$). 
 
 > Referensi: [REINFORCE Algorithm](https://medium.com/intro-to-artificial-intelligence/reinforce-a-policy-gradient-based-reinforcement-learning-algorithm-84bde440c816)
 
-3. **Model-Based** membangun **model transisi lingkungan** $ P(s' | s, a) $ untuk memprediksi keadaan berikutnya sebelum agen mengambil keputusan.  
+3. **Model-Based** membangun **model transisi lingkungan** $P(s' | s, a)$ untuk memprediksi keadaan berikutnya sebelum agen mengambil keputusan.
+
 $$
 s' \sim P(s' | s, a)
 $$
-- **$ s' $** = Next state setelah Agen mengambil aksi ($ a $) pada state ($ s $).  
-- **$ \sim $** = ($ s' $) diambil secara acak dari distribusi probabilitas $ P(s' | s, a) $.  
-- **$ P(s' | s, a) $** = Probabilitas transisi dari state ($ s $) ke state ($ s' $) setelah mengambil aksi ($ a $).  
+
+- **$s'$** = Next state setelah Agen mengambil aksi ($a$) pada state ($s$).  
+- **$\sim$** = ($s'$) diambil secara acak dari distribusi probabilitas $P(s' | s, a)$.  
+- **$P(s' | s, a)$** = Probabilitas transisi dari state ($s$) ke state ($s'$) setelah mengambil aksi ($a$).  
 
 ## Algoritma
 ### Q-Learning
-Q-Learning adalah salah satu algoritma dalam RL yang termasuk dalam kategori **Value-Based**. Algoritma ini mempelajari fungsi nilai aksi $ Q(s, a) $ untuk memaksimalkan reward yang diperoleh Agen.
+Q-Learning adalah salah satu algoritma dalam RL yang termasuk dalam kategori **Value-Based**. Algoritma ini mempelajari fungsi nilai aksi $Q(s, a)$ untuk memaksimalkan reward yang diperoleh Agen.
 
 **Contoh Implementasi**
 Untuk implementasinya, bisa di cek pada kode [taxi.py](/Modul%205/Q_Learning/taxi.py). Kode ini merupakan implementasi Q-Learning pada *game* Taxi-v3 dari OpenAI Gym. Goal dari kode ini adalah melatih Agen untuk mengambil penumpang dan mengantarkannya ke tujuan dengan efisien.
